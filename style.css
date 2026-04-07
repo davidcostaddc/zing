@@ -1,0 +1,520 @@
+/* Botão flutuante de voltar no canto inferior direito */
+.btn-voltar-flutuante {
+  position: fixed;
+  right: 32px;
+  bottom: 32px;
+  z-index: 200;
+  padding: 14px 36px;
+  font-size: 1.1em;
+  border-radius: 22px;
+  background: #2563eb;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 2px 12px #2563eb22;
+  letter-spacing: 0.5px;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.18s;
+}
+.btn-voltar-flutuante:hover {
+  background: #1d4ed8;
+  box-shadow: 0 4px 24px #2563eb33;
+  transform: scale(1.04);
+}
+/* Barra de progresso do quiz */
+.quiz-progresso-bar-container {
+  width: 100%;
+  max-width: 520px;
+  height: 16px;
+  background: #e0e7ff44;
+  border-radius: 10px;
+  margin: 0 auto 18px auto;
+  overflow: hidden;
+  box-shadow: 0 2px 8px #312e8133;
+}
+.quiz-progresso-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #2563eb 60%, #38bdf8 100%);
+  border-radius: 10px;
+  transition: width 0.4s cubic-bezier(.7,-0.2,.5,1.5);
+}
+.quiz-contador-perguntas {
+  font-size: 1.1em;
+  color: #fff;
+  font-weight: 600;
+  margin-bottom: 10px;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+.quiz-alternativa.errada {
+	background: rgba(239,68,68,0.18) !important;
+	color: #fff;
+}
+.quiz-alternativa.errada span {
+	color: #fff !important;
+}
+.quiz-alternativa.correta {
+	background: rgba(34,197,94,0.22) !important;
+	color: #fff;
+	font-weight: 800;
+}
+.quiz-alternativa.correta span {
+	color: #fff !important;
+}
+/* Quiz alternativas educativas */
+.quiz-alternativa {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	font-size: 1.15em;
+	margin: 12px 0;
+	padding: 10px 18px;
+	border-radius: 16px;
+	background: transparent;
+	cursor: pointer;
+	transition: background 0.18s, color 0.18s;
+	font-weight: 500;
+}
+.quiz-alternativa input[type="radio"] {
+	accent-color: #2563eb;
+	width: 20px;
+	height: 20px;
+}
+.quiz-alternativa.selected {
+	background: rgba(37,99,235,0.28);
+	color: #fff;
+	font-weight: 700;
+}
+.quiz-alternativa.selected span {
+	color: #fff !important;
+}
+
+body{
+	font-family: 'Segoe UI', 'Arial', sans-serif;
+	background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+	color: #f1f5f9;
+	margin: 0;
+	text-align: center;
+	min-height: 100vh;
+}
+
+
+.logo-zing {
+	font-size: 54px;
+	color: #fff;
+	margin-bottom: 0.2em;
+	letter-spacing: 2px;
+	font-weight: 900;
+	text-shadow: 0 4px 32px #312e81cc, 0 1px 0 #7c3aed;
+	font-family: 'Fredoka', 'Segoe UI', Arial, sans-serif;
+}
+.logo-zing.gigante {
+	font-size: 72px;
+	line-height: 1.05;
+}
+.subtitulo {
+	color: #fff;
+	font-size: 1.25em;
+	margin-bottom: 1.5em;
+	font-weight: 500;
+	text-shadow: 0 2px 16px #312e81cc, 0 1px 0 #7c3aed;
+	letter-spacing: 1px;
+}
+
+
+.login {
+	margin-top: 80px;
+	background: rgba(255,255,255,0.10);
+	border-radius: 18px;
+	box-shadow: 0 4px 32px #1e293b33;
+	display: inline-block;
+	padding: 40px 36px 32px 36px;
+	border: 1.5px solid #3b82f6;
+	backdrop-filter: blur(2px);
+}
+
+
+.perfil {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 18px;
+}
+
+
+.avatar {
+	width: 90px;
+	height: 90px;
+	border-radius: 50%;
+	border: 3px solid #7c3aed;
+	background: #312e81;
+	object-fit: cover;
+	margin-bottom: 8px;
+	box-shadow: 0 2px 16px #7c3aed55;
+}
+
+
+input {
+	padding: 12px 16px;
+	border-radius: 10px;
+	border: 1.5px solid #a5b4fc;
+	width: 220px;
+	font-size: 1.1em;
+	background: #312e81;
+	color: #f1f5f9;
+	margin-bottom: 8px;
+	transition: border 0.2s, background 0.2s;
+}
+input:focus {
+	border: 1.5px solid #7c3aed;
+	outline: none;
+	background: #4338ca;
+}
+
+
+button {
+	padding: 16px 0;
+	min-width: 180px;
+	border: none;
+	border-radius: 28px;
+	background: linear-gradient(90deg, #2563eb 60%, #60a5fa 100%);
+	color: #fff;
+	font-size: 1.18em;
+	font-weight: bold;
+	cursor: pointer;
+	box-shadow: 0 2px 12px #2563eb22;
+	margin: 0 auto;
+	transition: background 0.2s, box-shadow 0.2s, transform 0.18s;
+	display: block;
+	letter-spacing: 0.5px;
+}
+button:hover {
+	background: linear-gradient(90deg, #1d4ed8 60%, #60a5fa 100%);
+	box-shadow: 0 4px 24px #2563eb33;
+	transform: scale(1.04);
+}
+
+
+.hidden {
+	display: none;
+}
+
+
+.topo {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 24px;
+	margin-top: 40px;
+}
+.user-info {
+	text-align: left;
+}
+
+
+.cards {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 36px;
+	margin-top: 40px;
+}
+
+
+.card {
+	background: linear-gradient(135deg, #312e81 60%, #2563eb 120%);
+	padding: 32px 22px 28px 22px;
+	width: 260px;
+	border-radius: 20px;
+	box-shadow: 0 4px 32px #1e293b55;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	transition: transform 0.18s, box-shadow 0.18s, border 0.18s;
+	cursor: pointer;
+	border: 2px solid #3b82f6;
+	position: relative;
+	overflow: hidden;
+}
+.card:hover {
+	transform: translateY(-10px) scale(1.04);
+	box-shadow: 0 8px 40px #7c3aed77;
+	border: 2.5px solid #7c3aed;
+	z-index: 2;
+}
+.card-icone {
+	font-size: 2.2em;
+	margin-bottom: 10px;
+}
+.card h3 {
+	color: #a5b4fc;
+	font-size: 1.25em;
+	margin-bottom: 10px;
+	letter-spacing: 0.5px;
+	font-weight: bold;
+	text-shadow: 0 2px 8px #7c3aed33;
+}
+.card p {
+	color: #c7d2fe;
+	font-size: 1.08em;
+	margin-bottom: 18px;
+	min-height: 32px;
+}
+.card-btns {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 12px;
+	margin-top: 10px;
+}
+
+
+.pontos {
+	background: #4338ca;
+	color: #f1f5f9;
+	padding: 10px 18px;
+	border-radius: 12px;
+	font-weight: bold;
+	font-size: 1.1em;
+	margin-top: 8px;
+	display: inline-block;
+	box-shadow: 0 2px 8px #7c3aed33;
+}
+.titulo-assuntos {
+	color: #f1f5f9;
+	font-size: 1.4em;
+	margin-top: 36px;
+	margin-bottom: 18px;
+	font-weight: 700;
+	text-shadow: 0 2px 8px #312e8133;
+}
+
+/* --- Ranking Moderno --- */
+.resultado-card-principal {
+  background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+  color: #fff;
+  border-radius: 28px;
+  box-shadow: 0 6px 32px #312e8140;
+  padding: 38px 28px 28px 28px;
+  max-width: 420px;
+  margin: 38px auto 32px auto;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.resultado-titulo {
+  font-size: 2.1em;
+  font-weight: 900;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+  text-shadow: 0 2px 16px #312e81cc;
+}
+.resultado-parabens {
+  font-size: 2.5em;
+  font-weight: bold;
+  color: #22c55e;
+  margin-bottom: 8px;
+  text-shadow: 0 2px 16px #22c55e44;
+  animation: parabens-pop 0.7s cubic-bezier(.7,-0.2,.5,1.5);
+}
+@keyframes parabens-pop {
+  0% { transform: scale(0.7); opacity: 0; }
+  80% { transform: scale(1.15); opacity: 1; }
+  100% { transform: scale(1); }
+}
+.resultado-nivel {
+  font-size: 1.3em;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+.nivel-icone {
+  font-size: 2.2em;
+  filter: drop-shadow(0 2px 8px #fff8);
+}
+.nivel-txt {
+  font-weight: 600;
+  background: linear-gradient(90deg, #fff 60%, #f59e42 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.glow-lendario .nivel-icone {
+  animation: glow-lendario 1.2s infinite alternate, pulse-trofeu 1.2s infinite alternate;
+}
+@keyframes glow-lendario {
+  0% { filter: drop-shadow(0 0 0 #f43f5e88); }
+  100% { filter: drop-shadow(0 0 16px #f43f5e); }
+}
+@keyframes pulse-trofeu {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.13); }
+}
+.resultado-posicao {
+  margin-bottom: 10px;
+}
+.badge-posicao {
+  display: inline-block;
+  min-width: 44px;
+  padding: 8px 0;
+  border-radius: 50%;
+  font-size: 1.3em;
+  font-weight: bold;
+  color: #fff;
+  background: #2563eb;
+  box-shadow: 0 2px 8px #312e8133;
+  margin-right: 8px;
+}
+.txt-posicao {
+  font-size: 1.1em;
+  color: #fff;
+  font-weight: 500;
+}
+
+.leaderboard-card {
+  background: #fff;
+  border-radius: 22px;
+  box-shadow: 0 4px 24px #312e8133;
+  max-width: 520px;
+  margin: 0 auto 32px auto;
+  padding: 28px 18px 18px 18px;
+}
+.leaderboard-titulo {
+  font-size: 1.3em;
+  font-weight: bold;
+  color: #312e81;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.leaderboard-tabela {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 8px;
+  font-size: 1.08em;
+}
+.leaderboard-tabela th {
+  color: #2563eb;
+  font-weight: bold;
+  background: #e0e7ff;
+  padding: 8px 0;
+  border-radius: 8px 8px 0 0;
+}
+.leaderboard-tabela td {
+  background: #f3f4f6;
+  color: #312e81;
+  text-align: center;
+  padding: 10px 0;
+  border-radius: 12px;
+  font-weight: 500;
+}
+.leaderboard-tabela .medalha-lb {
+  font-size: 1.2em;
+  margin-left: 4px;
+}
+.avatar-leaderboard {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1em;
+  font-weight: bold;
+  color: #fff;
+  background: #2563eb;
+  box-shadow: 0 2px 8px #2563eb33;
+  margin: 0 auto;
+}
+.destaque-jogador td {
+  background: linear-gradient(90deg, #a5b4fc 0%, #38bdf8 100%) !important;
+  color: #fff !important;
+  font-weight: bold;
+  box-shadow: 0 2px 12px #38bdf855;
+}
+
+.btn-tentar-novo {
+  margin: 32px auto 0 auto;
+  display: block;
+  padding: 16px 38px;
+  font-size: 1.18em;
+  font-weight: bold;
+  border-radius: 28px;
+  background: linear-gradient(90deg, #2563eb 60%, #f43f5e 100%);
+  color: #fff;
+  border: none;
+  box-shadow: 0 2px 12px #2563eb22;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.18s;
+}
+.btn-tentar-novo:hover {
+  background: linear-gradient(90deg, #1d4ed8 60%, #f43f5e 100%);
+  box-shadow: 0 4px 24px #f43f5e33;
+  transform: scale(1.04);
+}
+
+.niveis-cards {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  margin: 36px auto 0 auto;
+  flex-wrap: wrap;
+  max-width: 700px;
+}
+.nivel-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #2563eb;
+  color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px #312e8133;
+  padding: 16px 18px 10px 18px;
+  min-width: 110px;
+  font-size: 1.08em;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.nivel-medalha {
+  font-size: 1.5em;
+  margin-bottom: 4px;
+}
+.nivel-nome {
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+.nivel-faixa {
+  font-size: 0.98em;
+  color: #e0e7ff;
+}
+
+/* Confete animação */
+.confete-vitoria {
+  pointer-events: none;
+  position: fixed;
+  left: 0; top: 0; width: 100vw; height: 100vh;
+  z-index: 9999;
+  background: url('https://cdn.jsdelivr.net/gh/mathusummut/confetti.js/confetti.png') repeat top center;
+  animation: confete-fade 2.2s linear forwards;
+  opacity: 0.85;
+}
+@keyframes confete-fade {
+  0% { opacity: 0; }
+  10% { opacity: 0.85; }
+  90% { opacity: 0.85; }
+  100% { opacity: 0; }
+}
+
+/* --- Animação de entrada nos cards --- */
+.resultado-card-principal, .leaderboard-card, .niveis-cards, .nivel-card {
+  animation: card-entrada 0.8s cubic-bezier(.7,-0.2,.5,1.5);
+}
+@keyframes card-entrada {
+  0% { transform: translateY(40px) scale(0.95); opacity: 0; }
+  80% { transform: translateY(-8px) scale(1.03); opacity: 1; }
+  100% { transform: translateY(0) scale(1); }
+}
